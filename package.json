@@ -9,8 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "gankkank",
+    "email": "gankkank@gmail.com",
+    "url": "https://github.com/gankkank"
+  },
+  "license": "(MIT OR Apache-2.0)",
   "dependencies": {
     "commander": "^2.9.0",
     "gitlab": "^1.7.1"
