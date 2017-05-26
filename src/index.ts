@@ -4,11 +4,12 @@ import { exec } from 'child_process';
 import program from './parser';
 import config from './config';
 import { listProjects, cloneOrUpdateProjects } from './gitlab';
+import logger from './logger';
 
 // do not use this in modules, but only in applications, as otherwise we could have multiple of these bound
 process.on('uncaughtException', function (err) {
     // handle the error safely
-    console.log("[error] please check token, etc. ", err.message)
+    logger.error("please check token, etc. ", err.message)
 })
 
 

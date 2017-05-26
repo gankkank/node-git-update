@@ -1,5 +1,6 @@
 import { exec } from 'child_process';
 import * as fs from 'fs';
+import logger from './logger';
 
 const getProjectInfo = (projects, config) => {
     return projects.map(project => {
@@ -21,7 +22,7 @@ const cloneProjects = (projects, config) => {
     Object.keys(projects).map(name => {
         if (fs.existsSync(`${config.dir}/${name}`)) {
             exec(`cd ${config.dir}/${name}; git pull`, (error, stdout, stderr) => {
-                console.log(`[update] project ${name}`)
+                logger.debug(`[update] project ${name}`)
                 //do whatever here
                 if (error !== null) {
                     console.log(`[error]`, error)
@@ -29,7 +30,7 @@ const cloneProjects = (projects, config) => {
             })
         } else {
             exec(`cd ${config.dir}; git clone ${projects[name]}`, (error, stdout, stderr) => {
-                console.log(`[create] project ${name}`)
+                logger.debug(`[create] project ${name}`)
                 //do whatever here
                 if (error !== null) {
                     console.log(`[error]`, error)

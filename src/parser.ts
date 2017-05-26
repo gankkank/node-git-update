@@ -1,6 +1,7 @@
 import * as program from 'commander';
 import config from './config';
 import * as fs from 'fs';
+import logger from './logger';
 
 program
     .version('0.0.1')
@@ -22,13 +23,13 @@ program
 
 
 if (program.token === undefined || program.namespace === undefined) {
-    console.log(`[error] token / namespace should exist`)
+    logger.error(`[error] token / namespace should exist`)
     process.exit(1)
 }
 
 let dir = program.dir || config.dir
 if (!fs.existsSync(dir)) {
-    console.log(` [error] dir ${dir} should exists`)
+    logger.error(` [error] dir ${dir} should exists`)
     process.exit(1)
 }
 
