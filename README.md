@@ -16,7 +16,7 @@ Or:
 
 * v1.1.0
 
-clone/update bitbucket; support multiple namespaces
+support clone/update bitbucket repositories; support multiple namespaces
 
 list repositories: `./bitbucket-update.js -t username:password -n team1,team2,team3 -d /tmp -l`
 

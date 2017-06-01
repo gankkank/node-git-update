@@ -20,7 +20,7 @@ const getReposInNamespaces = async (config: { namespaces: string[], creds, url }
             url: `${config.url}/2.0/repositories/${t}?pagelen=40`, auth: config.creds, method: "get"
         }).then(d => tansformData(d.data, t))
     }))
-    console.log(links)
+    // console.log(links)
     return links.reduce((pre, cur) => {
         return pre.concat(cur)
         // return pre;
@@ -43,13 +43,11 @@ export default class BitBucketApi {
         getReposInNamespaces(this.config).then(repos => {
             logger.debug("total projects: ", repos.length)
             repos.map(r => console.log(`${r.namespace}/${r.name}`))
-            // console.log(repos.map(r => `${r.namespace}/${r.name}`))
         })
     }
     cloneOrUpdateRepositories() {
         getReposInNamespaces(this.config).then(repos => {
             logger.debug("total projects: ", repos.length)
-            // console.log(repos.map(r => `${r.namespace}/${r.name}`))
             cloneProjects(repos, { dir: this.config.dir })
         })
     }
