@@ -47,7 +47,7 @@ export class GitlabApi {
     cloneOrUpdateRepositories() {
         this.listRepositories(repos => {
             // console.log(repos)
-            cloneProjects(repos, { dir: "/Users/jimmy/Desktop/gitBackup/gitlabRepos" });
+            cloneProjects(repos, { dir: this.config.dir});
         })
     }
 }
