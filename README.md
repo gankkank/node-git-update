@@ -1,8 +1,8 @@
 # README
 
-[![Build Status](https://travis-ci.org/gankkank/node-gitlab-update.svg?branch=master)](https://travis-ci.org/gankkank/node-gitlab-update)
+[![Build Status](https://travis-ci.org/gankkank/node-git-update.svg?branch=master)](https://travis-ci.org/gankkank/node-git-update)
 
-[![Code Climate](https://codeclimate.com/github/gankkank/node-gitlab-update/badges/gpa.svg)](https://codeclimate.com/github/gankkank/node-gitlab-update)
+[![Code Climate](https://codeclimate.com/github/gankkank/node-git-update/badges/gpa.svg)](https://codeclimate.com/github/gankkank/node-git-update)
 
 Install use:
 
