@@ -15,9 +15,10 @@ program
         console.log('  Examples:');
         console.log('');
         console.log('  Clone/Update projects in namespace:');
-        console.log('    $ gitlab-update -t _token_ -n xxx');
+        console.log('    $ gitlab-update -t token -n namespace -d /tmp');
+        console.log('    $ bitbucket-update -t username:password -n team1,team2,team3 -d /tmp')
         console.log('  List projects in certain namespace:');
-        console.log('    $ gitlab-update -t _token_ -n xxx -l');
+        console.log('    $ gitlab-update -t token -n namespace -d /tmp -l');
         console.log('');
     })
     .parse(process.argv);

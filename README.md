@@ -6,11 +6,21 @@
 
 Install use:
 
-`yarn global add gitlab-update`
+`yarn global add git-update`
 
 Or:
 
-`npm install gitlab-update -g`
+`npm install git-update -g`
+
+## Run
+
+Pre-setting: add host's public key in `~/.ssh/id_rsa.pub` to gitlab/bitbucket
+
+Then:
+
+`bitbucket-update -t username:password -n team1,team2,team3 -d /tmp`
+
+`gitlab-update -t token -n namespace -d /tmp`
 
 ## Update
 
