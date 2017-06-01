@@ -8,7 +8,11 @@ Install: `yarn global add git-update` Or `npm install git-update -g`
 
 ## Start
 
-Pre-setting: add host's public key in `~/.ssh/id_rsa.pub` to gitlab/bitbucket
+Pre-setting: 
+
+* Add host's public key in `~/.ssh/id_rsa.pub` to gitlab/bitbucket
+
+* Add gitlab/bitbucket host fringerprint `ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts`, `ssh-keyscan gitlab.com >> ~/.ssh/known_hosts`
 
 Then:
 
