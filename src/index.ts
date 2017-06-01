@@ -1,10 +1,10 @@
-import * as Gitlab from 'gitlab';
 import * as fs from 'fs';
 import { exec } from 'child_process';
 import program from './parser';
-import config from './config';
-import { listProjects, cloneOrUpdateProjects } from './gitlab';
 import logger from './logger';
+import BitBucketApi from './api/bitbucket-api';
+import ApiConfig from './model/ApiConfig';
+import { GitlabApi } from './api/gitlab-api';
 
 // do not use this in modules, but only in applications, as otherwise we could have multiple of these bound
 process.on('uncaughtException', function (err) {
@@ -12,19 +12,33 @@ process.on('uncaughtException', function (err) {
     logger.error("please check token, etc. ", err.message)
 })
 
-
-let token = program.token
-let namespace = program.namespace
-let dir = program.dir || config.dir
-let url = program.url || config.url
-
-const gitlab = Gitlab({
-    url: url,
-    token: token,
-})
-
-if (program.list) {
-    listProjects(gitlab, { namespace })
-} else {
-    cloneOrUpdateProjects(gitlab, { dir, namespace })
+const runGitlab = () => {
+    const api = new GitlabApi(program);
+    if (program.list) {
+        api.listRepositories()
+    } else {
+        api.cloneOrUpdateRepositories()
+    }
 }
+
+const runBitbucket = () => {
+    const api = new BitBucketApi(program);
+
+    if (program.list) {
+        api.listRepositories()
+    } else {
+        api.cloneOrUpdateRepositories();
+    }
+}
+
+const run = (repoType) => {
+    if (repoType === "bitbucket") {
+        return runBitbucket()
+    }
+    if (repoType === "gitlab") {
+        return runGitlab()
+    }
+    logger.error("don't support repotType : " + repoType)
+}
+
+export default run

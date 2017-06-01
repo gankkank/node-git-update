@@ -12,6 +12,14 @@ Or:
 
 `npm install gitlab-update -g`
 
+## Update
+
+* v1.1.0
+
+clone/update bitbucket; support multiple namespaces
+
+list repositories: `./bitbucket-update.js -t username:password -n team1,team2,team3 -d /tmp -l`
+
 ## Help
 
 Sync projects in namespace to local folders
